@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>设计模式之单例模式 | A·Y</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/alightyoung/static/img/logo.png">
+    <link rel="stylesheet" href="/css/katex.min.css">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.465cc0aa.css" as="style"><link rel="preload" href="/assets/js/app.f00b2d44.js" as="script"><link rel="preload" href="/assets/js/3.9e546140.js" as="script"><link rel="preload" href="/assets/js/1.e6bb5ad8.js" as="script"><link rel="preload" href="/assets/js/29.434035ba.js" as="script"><link rel="prefetch" href="/assets/js/10.cde2a8b0.js"><link rel="prefetch" href="/assets/js/11.2468027f.js"><link rel="prefetch" href="/assets/js/12.fc8f8cf4.js"><link rel="prefetch" href="/assets/js/13.4376b269.js"><link rel="prefetch" href="/assets/js/14.4bc31c1d.js"><link rel="prefetch" href="/assets/js/15.09d2bd97.js"><link rel="prefetch" href="/assets/js/16.80f33369.js"><link rel="prefetch" href="/assets/js/17.71283924.js"><link rel="prefetch" href="/assets/js/18.daec86c0.js"><link rel="prefetch" href="/assets/js/19.edd34fdc.js"><link rel="prefetch" href="/assets/js/20.742c82d0.js"><link rel="prefetch" href="/assets/js/21.6be69284.js"><link rel="prefetch" href="/assets/js/22.cff2dd1c.js"><link rel="prefetch" href="/assets/js/23.8ac2136a.js"><link rel="prefetch" href="/assets/js/24.cce04572.js"><link rel="prefetch" href="/assets/js/25.c9c74f00.js"><link rel="prefetch" href="/assets/js/26.551683df.js"><link rel="prefetch" href="/assets/js/27.e6b3583c.js"><link rel="prefetch" href="/assets/js/28.54d7427b.js"><link rel="prefetch" href="/assets/js/30.b3693a51.js"><link rel="prefetch" href="/assets/js/31.9367c03a.js"><link rel="prefetch" href="/assets/js/32.5e797a5b.js"><link rel="prefetch" href="/assets/js/33.5928a440.js"><link rel="prefetch" href="/assets/js/34.abf21908.js"><link rel="prefetch" href="/assets/js/35.50a6fcc9.js"><link rel="prefetch" href="/assets/js/36.b112fc14.js"><link rel="prefetch" href="/assets/js/37.699c64dd.js"><link rel="prefetch" href="/assets/js/38.9ef6a06e.js"><link rel="prefetch" href="/assets/js/39.23c24ae7.js"><link rel="prefetch" href="/assets/js/4.24e99d16.js"><link rel="prefetch" href="/assets/js/40.53cc11bb.js"><link rel="prefetch" href="/assets/js/41.55112754.js"><link rel="prefetch" href="/assets/js/42.63dbb0d1.js"><link rel="prefetch" href="/assets/js/43.f6616d97.js"><link rel="prefetch" href="/assets/js/44.d08f71b0.js"><link rel="prefetch" href="/assets/js/45.75419aa2.js"><link rel="prefetch" href="/assets/js/46.dc9654b7.js"><link rel="prefetch" href="/assets/js/47.d4177d2d.js"><link rel="prefetch" href="/assets/js/48.0cd8e56b.js"><link rel="prefetch" href="/assets/js/49.37dd21d8.js"><link rel="prefetch" href="/assets/js/5.8ab7c490.js"><link rel="prefetch" href="/assets/js/50.06f1b0ea.js"><link rel="prefetch" href="/assets/js/51.f9aabe03.js"><link rel="prefetch" href="/assets/js/52.364b4e76.js"><link rel="prefetch" href="/assets/js/53.f508a694.js"><link rel="prefetch" href="/assets/js/54.34bf40b5.js"><link rel="prefetch" href="/assets/js/55.965e08c0.js"><link rel="prefetch" href="/assets/js/56.83af3fad.js"><link rel="prefetch" href="/assets/js/57.ab4cd18b.js"><link rel="prefetch" href="/assets/js/58.2d3a1411.js"><link rel="prefetch" href="/assets/js/59.b10aa3d8.js"><link rel="prefetch" href="/assets/js/6.ae816b8a.js"><link rel="prefetch" href="/assets/js/60.ca590893.js"><link rel="prefetch" href="/assets/js/61.1af9a6c8.js"><link rel="prefetch" href="/assets/js/62.37faafca.js"><link rel="prefetch" href="/assets/js/63.9e0adcd8.js"><link rel="prefetch" href="/assets/js/64.570e240f.js"><link rel="prefetch" href="/assets/js/65.ff1fb9bb.js"><link rel="prefetch" href="/assets/js/66.253dd570.js"><link rel="prefetch" href="/assets/js/67.2e8e7568.js"><link rel="prefetch" href="/assets/js/68.d0f968dc.js"><link rel="prefetch" href="/assets/js/69.624a6ad1.js"><link rel="prefetch" href="/assets/js/7.3946ddf2.js"><link rel="prefetch" href="/assets/js/70.9e7ecdae.js"><link rel="prefetch" href="/assets/js/71.fe9a5f56.js"><link rel="prefetch" href="/assets/js/72.0fa1b4a3.js"><link rel="prefetch" href="/assets/js/73.310af081.js"><link rel="prefetch" href="/assets/js/74.e9a82633.js"><link rel="prefetch" href="/assets/js/75.de4e154d.js"><link rel="prefetch" href="/assets/js/76.dd6e1d20.js"><link rel="prefetch" href="/assets/js/77.db6c9046.js"><link rel="prefetch" href="/assets/js/78.5bef35b1.js"><link rel="prefetch" href="/assets/js/79.7fd5b98c.js"><link rel="prefetch" href="/assets/js/8.e2a2d739.js"><link rel="prefetch" href="/assets/js/80.2c950173.js"><link rel="prefetch" href="/assets/js/81.b2305cda.js"><link rel="prefetch" href="/assets/js/82.8fd4f588.js"><link rel="prefetch" href="/assets/js/83.2c6a02c5.js"><link rel="prefetch" href="/assets/js/84.8a3c27fe.js"><link rel="prefetch" href="/assets/js/85.b74c438e.js"><link rel="prefetch" href="/assets/js/86.bed252a0.js"><link rel="prefetch" href="/assets/js/87.2aaed5d4.js"><link rel="prefetch" href="/assets/js/88.ba3fee7a.js"><link rel="prefetch" href="/assets/js/89.f7d6f42d.js"><link rel="prefetch" href="/assets/js/9.a0882abe.js"><link rel="prefetch" href="/assets/js/90.bda2e396.js"><link rel="prefetch" href="/assets/js/91.bf73ef70.js"><link rel="prefetch" href="/assets/js/92.c78a8abf.js"><link rel="prefetch" href="/assets/js/93.6f803739.js"><link rel="prefetch" href="/assets/js/94.77aeb755.js"><link rel="prefetch" href="/assets/js/95.8f5066f3.js"><link rel="prefetch" href="/assets/js/96.91923685.js"><link rel="prefetch" href="/assets/js/97.cfd9e9ef.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.465cc0aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>A·Y</h3> <p class="description" data-v-59e6cb88></p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AlightYoung</span>
+          
+        <span data-v-59e6cb88>2019 - </span>
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">A·Y</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Categorys
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Guide/" class="nav-link"><i class="undefined"></i>
+  Guide
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WebServer/" class="nav-link"><i class="undefined"></i>
+  WebServer
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Database/" class="nav-link"><i class="undefined"></i>
+  Database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WebFrontend/" class="nav-link"><i class="undefined"></i>
+  WebFrontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/DataStructure/" class="nav-link"><i class="undefined"></i>
+  DataStructure
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Web/" class="nav-link"><i class="undefined"></i>
+  Web
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Server/" class="nav-link"><i class="undefined"></i>
+  Server
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Containerization/" class="nav-link"><i class="undefined"></i>
+  Containerization
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backup/" class="nav-link"><i class="undefined"></i>
+  Backup
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kotlin/" class="nav-link"><i class="undefined"></i>
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  Timeline
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      Mirrors
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://alightyoung.gitee.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Gitee Pages
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://alightyoung.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github Pages
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <a href="https://github.com/alightyoung/alightyoung.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/img/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    AlightYoung
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>86</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>61</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-mail" style="color:#abbd81;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#e15b64;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-mayun" style="color:#fb9b5f;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-bilibili" style="color:#67cc86;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-zhihu" style="color:#f47e60;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-weibo" style="color:#e15b64;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Categorys
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Guide/" class="nav-link"><i class="undefined"></i>
+  Guide
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Git/" class="nav-link"><i class="undefined"></i>
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Algorithm/" class="nav-link"><i class="undefined"></i>
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WebServer/" class="nav-link"><i class="undefined"></i>
+  WebServer
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Database/" class="nav-link"><i class="undefined"></i>
+  Database
+</a></li><li class="dropdown-item"><!----> <a href="/categories/WebFrontend/" class="nav-link"><i class="undefined"></i>
+  WebFrontend
+</a></li><li class="dropdown-item"><!----> <a href="/categories/DataStructure/" class="nav-link"><i class="undefined"></i>
+  DataStructure
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Web/" class="nav-link"><i class="undefined"></i>
+  Web
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Server/" class="nav-link"><i class="undefined"></i>
+  Server
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Containerization/" class="nav-link"><i class="undefined"></i>
+  Containerization
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Backup/" class="nav-link"><i class="undefined"></i>
+  Backup
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Shell/" class="nav-link"><i class="undefined"></i>
+  Shell
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Kotlin/" class="nav-link"><i class="undefined"></i>
+  Kotlin
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tags
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  Timeline
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      Mirrors
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://alightyoung.gitee.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Gitee Pages
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://alightyoung.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github Pages
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <a href="https://github.com/alightyoung/alightyoung.github.io" target="_blank" rel="noopener noreferrer" class="repo-link"><i class="iconfont reco-github"></i>
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>设计模式之单例模式</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>AlightYoung</span>
+          
+        <span data-v-59e6cb88>2019 - </span>
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">设计模式之单例模式</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>AlightYoung</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>12/2/2019</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>Design pattern</span></i></div></div> <div class="theme-reco-content content__default"><h3 id="单例模式"><a href="#单例模式" class="header-anchor">#</a> 单例模式</h3> <p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p> <p>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p> <p><strong>注意：</strong></p> <ul><li>1、单例类只能有一个实例。</li> <li>2、单例类必须自己创建自己的唯一实例。</li> <li>3、单例类必须给所有其他对象提供这一实例。</li></ul> <h4 id="介绍"><a href="#介绍" class="header-anchor">#</a> 介绍</h4> <p><strong>意图:</strong> 保证一个类仅有一个实例，并提供一个访问它的全局访问点。
+<strong>主要解决：</strong> 一个全局使用的类频繁地创建与销毁。
+<strong>何时使用：</strong> 当您想控制实例数目，节省系统资源的时候。
+<strong>如何解决：</strong> 判断系统是否已经有这个单例，如果有则返回，如果没有则创建。
+<strong>关键代码：</strong> 构造函数是私有的。
+<strong>应用实例：</strong></p> <ul><li>1、一个班级只有一个班主任。</li> <li>2、Windows 是多进程多线程的，在操作一个文件的时候，就不可避免地出现多个进程或线程同时操作一个文件的现象，所以所有文件的处理必须通过唯一的实例来进行。</li> <li>3、一些设备管理器常常设计为单例模式，比如一个电脑有两台打印机，在输出的时候就要处理不能两台打印机打印同一个文件。</li></ul> <p><strong>优点：</strong></p> <ul><li>1、在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。</li> <li>2、避免对资源的多重占用（比如写文件操作）。</li></ul> <p><strong>缺点：</strong> 没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</p> <p><strong>使用场景：</strong></p> <ul><li>1、要求生产唯一序列号。</li> <li>2、WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。</li> <li>3、创建的一个对象需要消耗的资源过多，比如 I/O 与数据库的连接等。</li></ul> <p><font size="2"><strong>注意事项：</strong> getInstance() 方法中需要使用同步锁 synchronized (Singleton.class) 防止多线程同时进入造成 instance 被多次实例化。</font></p> <h4 id="实现"><a href="#实现" class="header-anchor">#</a> 实现</h4> <p>我们将创建一个 SingleObject 类。SingleObject 类有它的私有构造函数和本身的一个静态实例。<br>
+SingleObject 类提供了一个静态方法，供外界获取它的静态实例。SingletonPatternDemo，我们的演示类使用 SingleObject 类来获取 SingleObject 对象。</p> <p><img src="https://alightyoung.gitee.io/static/img/32.jpg" alt="img"></p> <p><strong>步骤 1</strong></p> <p>创建一个 Singleton 类。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SingleObject</span> <span class="token punctuation">{</span>
+ 
+   <span class="token comment">//创建 SingleObject 的一个对象</span>
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">SingleObject</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SingleObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+   <span class="token comment">//让构造函数为 private，这样该类就不会被实例化</span>
+   <span class="token keyword">private</span> <span class="token class-name">SingleObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+ 
+   <span class="token comment">//获取唯一可用的对象</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">SingleObject</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+ 
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello World!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p><strong>步骤 2</strong></p> <p>从 singleton 类获取唯一的对象。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SingletonPatternDemo</span> <span class="token punctuation">{</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ 
+      <span class="token comment">//不合法的构造函数</span>
+      <span class="token comment">//编译时错误：构造函数 SingleObject() 是不可见的</span>
+      <span class="token comment">//SingleObject object = new SingleObject();</span>
+ 
+      <span class="token comment">//获取唯一可用的对象</span>
+      <span class="token class-name">SingleObject</span> object <span class="token operator">=</span> <span class="token class-name">SingleObject</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+      <span class="token comment">//显示消息</span>
+      object<span class="token punctuation">.</span><span class="token function">showMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><strong>步骤 3</strong></p> <p>执行程序，输出结果：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token class-name">Hello</span> <span class="token class-name">World</span><span class="token operator">!</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="单例模式的几种实现方式"><a href="#单例模式的几种实现方式" class="header-anchor">#</a> 单例模式的几种实现方式</h3> <p>单例模式的实现有多种方式，如下所示：</p> <h4 id="_1、懒汉式-线程不安全"><a href="#_1、懒汉式-线程不安全" class="header-anchor">#</a> 1、懒汉式，线程不安全</h4> <p><strong>是否 Lazy 初始化：</strong> 是
+<strong>是否多线程安全：</strong> 否
+<strong>实现难度：</strong> 易
+<strong>描述：</strong> 这种方式是最基本的实现方式，这种实现最大的问题就是不支持多线程。因为没有加锁 synchronized，所以严格意义上它并不算单例模式。这种方式 lazy loading 很明显，不要求线程安全，在多线程不能正常工作。</p> <blockquote><p>实例</p></blockquote> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance<span class="token punctuation">;</span>  
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+    <span class="token keyword">return</span> instance<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>接下来介绍的几种实现方式都支持多线程，但是在性能上有所差异。</p> <h4 id="_2、懒汉式-线程安全"><a href="#_2、懒汉式-线程安全" class="header-anchor">#</a> 2、懒汉式，线程安全</h4> <p><strong>是否 Lazy 初始化：</strong> 是
+<strong>是否多线程安全：</strong> 是
+<strong>实现难度：</strong> 易
+<strong>描述：</strong> 这种方式具备很好的 lazy loading，能够在多线程中很好的工作，但是，效率很低，99% 情况下不需要同步。
+优点：第一次调用才初始化，避免内存浪费。
+缺点：必须加锁 synchronized 才能保证单例，但加锁会影响效率。
+getInstance() 的性能对应用程序不是很关键（该方法使用不太频繁）。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance<span class="token punctuation">;</span>  
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+    <span class="token keyword">return</span> instance<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="_3、饿汉式"><a href="#_3、饿汉式" class="header-anchor">#</a> 3、饿汉式</h4> <p><strong>是否 Lazy 初始化：</strong> 否
+<strong>是否多线程安全：</strong> 是
+<strong>实现难度：</strong> 易
+<strong>描述：</strong> 这种方式比较常用，但容易产生垃圾对象。
+优点：没有加锁，执行效率会提高。
+缺点：类加载时就初始化，浪费内存。
+它基于 classloader 机制避免了多线程的同步问题，不过，instance 在类装载时就实例化，虽然导致类装载的原因有很多种，在单例模式中大多数都是调用 getInstance 方法， 但是也不能确定有其他的方式（或者其他的静态方法）导致类装载，这时候初始化 instance 显然没有达到 lazy loading 的效果。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">return</span> instance<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="_4、双检锁-双重校验锁-dcl-即-double-checked-locking"><a href="#_4、双检锁-双重校验锁-dcl-即-double-checked-locking" class="header-anchor">#</a> 4、双检锁/双重校验锁（DCL，即 double-checked locking）</h4> <p><strong>JDK 版本：</strong> JDK1.5 起
+<strong>是否 Lazy 初始化：</strong> 是
+<strong>是否多线程安全：</strong> 是
+<strong>实现难度：</strong> 较复杂
+<strong>描述：</strong> 这种方式采用双锁机制，安全且在多线程情况下能保持高性能。getInstance() 的性能对应用程序很关键。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> singleton<span class="token punctuation">;</span>  
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>singleton <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>singleton <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+            singleton <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+        <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span>  
+    <span class="token keyword">return</span> singleton<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h4 id="_5、登记式-静态内部类"><a href="#_5、登记式-静态内部类" class="header-anchor">#</a> 5、登记式/静态内部类</h4> <p><strong>是否 Lazy 初始化：</strong> 是
+<strong>是否多线程安全：</strong> 是
+<strong>实现难度：</strong> 一般
+<strong>描述：</strong> 这种方式能达到双检锁方式一样的功效，但实现更简单。对静态域使用延迟初始化，应使用这种方式而不是双检锁方式。这种方式只适用于静态域的情况，双检锁方式可在实例域需要延迟初始化时使用。
+这种方式同样利用了 classloader 机制来保证初始化 instance 时只有一个线程，它跟第 3 种方式不同的是：第 3 种方式只要 Singleton 类被装载了，那么 instance 就会被实例化（没有达到 lazy loading 效果），而这种方式是 Singleton 类被装载了，instance 不一定被初始化。因为 SingletonHolder 类没有被主动使用，只有通过显式调用 getInstance 方法时，才会显式装载 SingletonHolder 类，从而实例化 instance。想象一下，如果实例化 instance 很消耗资源，所以想让它延迟加载，另外一方面，又不希望在 Singleton 类加载时就实例化，因为不能确保 Singleton 类还可能在其他的地方被主动使用从而被加载，那么这个时候实例化 instance 显然是不合适的。这个时候，这种方式相比第 3 种方式就显得很合理。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">SingletonHolder</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Singleton</span> <span class="token constant">INSTANCE</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    <span class="token keyword">return</span> <span class="token class-name">SingletonHolder</span><span class="token punctuation">.</span><span class="token constant">INSTANCE</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="_6、枚举"><a href="#_6、枚举" class="header-anchor">#</a> 6、枚举</h4> <p><strong>JDK 版本：</strong> JDK1.5 起</p> <p><strong>是否 Lazy 初始化：</strong> 否</p> <p><strong>是否多线程安全：</strong> 是</p> <p><strong>实现难度：</strong> 易</p> <p><strong>描述：</strong> 这种实现方式还没有被广泛采用，但这是实现单例模式的最佳方法。它更简洁，自动支持序列化机制，绝对防止多次实例化。
+这种方式是 Effective Java 作者 Josh Bloch 提倡的方式，它不仅能避免多线程同步问题，而且还自动支持序列化机制，防止反序列化重新创建新的对象，绝对防止多次实例化。不过，由于 JDK1.5 之后才加入 enum 特性，用这种方式写不免让人感觉生疏，在实际工作中，也很少用。
+不能通过 reflection attack 来调用私有构造方法。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>  
+    <span class="token constant">INSTANCE</span><span class="token punctuation">;</span>  
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">whateverMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>经验之谈：</strong> 一般情况下，不建议使用第 1 种和第 2 种懒汉方式，建议使用第 3 种饿汉方式。只有在要明确实现 lazy loading 效果时，才会使用第 5 种登记方式。如果涉及到反序列化创建对象时，可以尝试使用第 6 种枚举方式。如果有其他特殊的需求，可以考虑使用第 4 种双检锁方式。</p></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-b57cc07c data-v-7dd95ae2><li class="level-3" data-v-b57cc07c><a href="/posts/2019/20191202.html#单例模式" class="sidebar-link reco-side-单例模式" data-v-b57cc07c>单例模式</a></li><li class="level-3" data-v-b57cc07c><a href="/posts/2019/20191202.html#单例模式的几种实现方式" class="sidebar-link reco-side-单例模式的几种实现方式" data-v-b57cc07c>单例模式的几种实现方式</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.f00b2d44.js" defer></script><script src="/assets/js/3.9e546140.js" defer></script><script src="/assets/js/1.e6bb5ad8.js" defer></script><script src="/assets/js/29.434035ba.js" defer></script>
+  </body>
+</html>
